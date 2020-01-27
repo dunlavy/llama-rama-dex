@@ -1,0 +1,46 @@
+﻿<Page x:Class="LlamaRamaDex.Pages.About"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Foreground="White"
+		Title="About">
+	<Page.Resources>
+		<Style TargetType="TextBlock">
+			<Setter Property="FontSize"
+					  Value="14" />
+			<Setter Property="Margin"
+					  Value="0,2,0,0" />
+		</Style>
+
+		<Style TargetType="TextBlock"
+				 x:Key="Header">
+			<Setter Property="Typography.Capitals"
+					  Value="SmallCaps" />
+			<Setter Property="FontSize"
+					  Value="18" />
+			<Setter Property="Margin"
+					  Value="0,18,0,0" />
+		</Style>
+
+		<Style TargetType="TextBlock"
+				 x:Key="NoMarginHeader"
+				 BasedOn="{StaticResource Header}">
+			<Setter Property="Margin"
+					  Value="0" />
+		</Style>
+	</Page.Resources>
+
+	<StackPanel Margin="18,0,0,18"
+					Width="420">
+		<TextBlock Style="{StaticResource NoMarginHeader}">Who needs an app with llamas?</TextBlock>
+		<TextBlock>Or are they alpacas?</TextBlock>
+
+		<TextBlock Style="{StaticResource Header}">OK then, what's this for?</TextBlock>
+		<TextBlock TextWrapping="WrapWithOverflow">A quick introduction to the fundamentals of dependency inversion and decoupling modules!  Even though you may be separating your code concerns, you could have a dirty little destructive secret:  Tight coupling.  Each object may be doing slightly more than it should be responsible for.</TextBlock>
+
+		<TextBlock Style="{StaticResource Header}">How can I learn from this?</TextBlock>
+		<TextBlock TextWrapping="WrapWithOverflow">Please look at the various branches in my source control repository.  Observe their deltas to each other.</TextBlock>
+
+		<TextBlock Style="{StaticResource Header}">Can someone better than you teach this to me?</TextBlock>
+		<TextBlock TextWrapping="WrapWithOverflow">Ha!  I mean, of course.  Please check out the very excellent instructor, Jeremy Bytes.  I heavily borrow from his examples and his lecture regarding dependency injection.</TextBlock>
+	</StackPanel>
+</Page>

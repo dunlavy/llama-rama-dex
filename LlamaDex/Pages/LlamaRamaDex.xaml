@@ -1,0 +1,12 @@
+﻿<Page x:Class="LlamaRamaDex.Pages.LlamaRamaDex"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<StackPanel>
+		<TextBlock Style="{StaticResource RepositoryTextStyle}"
+					  Text="{Binding RepositoryType, Converter={StaticResource prefix}, ConverterParameter='Repository In Use: '}" />
+
+		<ListView ItemsSource="{Binding Llamas}"
+					 SelectedItem="{Binding SelectedLlama}"
+					 ItemTemplate="{StaticResource LlamaTemplate}" />
+	</StackPanel>
+</Page>
