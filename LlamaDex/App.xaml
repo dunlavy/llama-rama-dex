@@ -52,10 +52,46 @@
 		</Style>
 
 		<DataTemplate x:Key="LlamaTemplate">
+			<DataTemplate.Triggers>
+				<EventTrigger RoutedEvent="MouseUp">
+					<BeginStoryboard>
+						<Storyboard>
+							<DoubleAnimation From="1"
+												  To="1.1"
+												  Duration="0:0:0.18"
+												  AutoReverse="True"
+												  RepeatBehavior="3x"
+												  Storyboard.TargetName="ScaleTransform"
+												  Storyboard.TargetProperty="(ScaleTransform.ScaleX)" />
+						</Storyboard>
+					</BeginStoryboard>
+					
+					<BeginStoryboard>
+						<Storyboard>
+							<DoubleAnimation From="1"
+												  To="1.1"
+												  Duration="0:0:0.18"
+												  AutoReverse="True"
+												  RepeatBehavior="3x"
+												  Storyboard.TargetName="ScaleTransform"
+												  Storyboard.TargetProperty="(ScaleTransform.ScaleY)" />
+						</Storyboard>
+					</BeginStoryboard>
+				</EventTrigger>
+			</DataTemplate.Triggers>
+
 			<StackPanel>
 				<Image gif:ImageBehavior.AnimatedSource="{Binding PhotoUrl}"
 						 Height="190"
-						 Margin="0,12,0,0" />
+						 Margin="0,12,0,0">
+					<Image.RenderTransform>
+						<ScaleTransform x:Name="ScaleTransform"
+											 CenterX="150"
+											 CenterY="150"
+											 ScaleX="1"
+											 ScaleY="1" />
+					</Image.RenderTransform>
+				</Image>
 				<TextBlock Text="{Binding Name}"
 							  FontSize="20"
 							  Foreground="White"
