@@ -6,7 +6,7 @@ using LlamaRamaDex.Models;
 using LlamaRamaDex.Models.Interfaces;
 
 namespace LlamaRamaDex.DataAccess {
-	public class AnotherLlamaRepository {
+	public class AnotherLlamaRepository:ILlamaRepository {
 		public IEnumerable<ILlama> FetchLlamas() {
 			return new ObservableCollection<ILlama>() {
 				new Llama("Nasty", Path.Combine("/Graphics", "Nasty.gif")),
