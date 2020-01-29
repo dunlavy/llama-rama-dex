@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Media;
 using System.Runtime.CompilerServices;
@@ -9,10 +10,21 @@ using LlamaRamaDex.Models.Interfaces;
 
 namespace LlamaRamaDex.ViewModels {
 	public class LlamaRamaDexViewModel:INotifyPropertyChanged {
+		private AnotherLlamaRepository _anotherLlamaRepository;
 		private LlamaRepository _llamaRepository;
 
 		public LlamaRamaDexViewModel() {
-			_llamaRepository = new LlamaRepository();
+			string repositorySettingValue = ConfigurationManager.AppSettings.Get("Repository").ToLower();
+
+			if (repositorySettingValue == "llamarepository") {
+				_llamaRepository = new LlamaRepository();
+			}
+			else if (repositorySettingValue == "otherllamarepository") {
+				_anotherLlamaRepository = new AnotherLlamaRepository();
+			}
+			else {
+				_makeLlamaScream();
+			}
 
 			FetchLlamas();
 		}
@@ -36,9 +48,11 @@ namespace LlamaRamaDex.ViewModels {
 			}
 		}
 
-		public string RepositoryType => _llamaRepository.ToString();
+		public string RepositoryType => _anotherLlamaRepository?.ToString() ?? _llamaRepository?.ToString();
 
-		public void FetchLlamas() => Llamas = _llamaRepository.FetchLlamas();
+		public void FetchLlamas() => Llamas = _anotherLlamaRepository == null ?
+			_llamaRepository?.FetchLlamas() :
+			_anotherLlamaRepository?.FetchLlamas();
 
 		public event PropertyChangedEventHandler PropertyChanged;
 		private void _raisePropertyChanged([CallerMemberName] string propertyName = null) =>
