@@ -3,10 +3,10 @@
 using LlamaRamaDex.ViewModels;
 
 namespace LlamaRamaDex.Pages {
-	public partial class LlamaRamaDex:Page {
-		public LlamaRamaDex() {
+	public partial class LlamaRamaDexPage:Page {
+		public LlamaRamaDexPage(LlamaRamaDexViewModel viewModel) {
 			InitializeComponent();
-			DataContext = new LlamaRamaDexViewModel();
+			DataContext = viewModel;
 		}
 	}
 }
