@@ -13,6 +13,7 @@ namespace LlamaRamaDex {
 
 			_composeObjects();
 
+			// we're doing this instead of WPF XAML like it did before
 			Current.MainWindow.Show();
 		}
 
