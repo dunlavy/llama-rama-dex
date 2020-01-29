@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.IO;
 using System.Media;
 using System.Runtime.CompilerServices;
@@ -12,19 +11,8 @@ namespace LlamaRamaDex.ViewModels {
 	public class LlamaRamaDexViewModel:INotifyPropertyChanged {
 		private ILlamaRepository _llamaRepository;
 
-		public LlamaRamaDexViewModel() {
-			string repositorySettingValue = ConfigurationManager.AppSettings.Get("Repository").ToLower();
-
-			if (repositorySettingValue == "llamarepository") {
-				_llamaRepository = new LlamaRepository();
-			}
-			else if (repositorySettingValue == "otherllamarepository") {
-				_llamaRepository = new AnotherLlamaRepository();
-			}
-			else {
-				_makeLlamaScream();
-			}
-
+		public LlamaRamaDexViewModel(ILlamaRepository llamaDataRepository) {
+			_llamaRepository = llamaDataRepository;
 			FetchLlamas();
 		}
 

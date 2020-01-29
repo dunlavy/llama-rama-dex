@@ -37,15 +37,15 @@
 					  Value="#F9C95B" />
 		</Style>
 	</NavigationWindow.Resources>
-	
+
 	<NavigationWindow.Content>
 		<DockPanel>
 			<StackPanel DockPanel.Dock="Left"
 							Style="{StaticResource LeftContainer}">
 				<TextBlock Style="{StaticResource MenuItem}">
-					<Hyperlink Foreground="{Binding RelativeSource={RelativeSource AncestorLevel=1,Mode=FindAncestor,AncestorType={x:Type TextBlock}}, Path=Foreground}"
-								  NavigateUri="/Pages/LlamaRamaDex.xaml"
-								  TargetName="NavigationFrame">
+					<Hyperlink Name="Llama"
+								  Foreground="{Binding RelativeSource={RelativeSource AncestorLevel=1,Mode=FindAncestor,AncestorType={x:Type TextBlock}}, Path=Foreground}"
+								  Click="_navigate">
 						LLAMARAMADEX
 					</Hyperlink>
 				</TextBlock>
@@ -76,7 +76,6 @@
 
 				<Frame Name="NavigationFrame"
 						 Grid.Row="1"
-						 Source="/Pages/LlamaRamaDex.xaml"
 						 VerticalAlignment="Stretch" />
 			</Grid>
 		</DockPanel>
