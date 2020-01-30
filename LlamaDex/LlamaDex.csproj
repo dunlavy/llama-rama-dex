@@ -64,6 +64,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\PrefixConverter.cs" />
     <Compile Include="DataAccess\AnotherLlamaRepository.cs" />
+    <Compile Include="DataAccess\YetAnotherLlamaRepository.cs" />
     <Compile Include="Models\Interfaces\ILlamaRepository.cs" />
     <Compile Include="DataAccess\LlamaRepository.cs" />
     <Compile Include="Models\Interfaces\ILlama.cs" />

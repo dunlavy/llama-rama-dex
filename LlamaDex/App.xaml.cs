@@ -38,6 +38,8 @@ namespace LlamaRamaDex {
 					return new LlamaRepository();
 				case "otherllamarepository":
 					return new AnotherLlamaRepository();
+				case "yetanotherllamarepository":
+					return new YetAnotherLlamaRepository();
 				default: return null;
 			}
 		}
